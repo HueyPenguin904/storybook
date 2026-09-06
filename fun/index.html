@@ -23,46 +23,50 @@
         }
 
         h1 {
-            font-size: 3em;
-            color: #5c4a3d;
-            margin-bottom: 10px;
+            font-size: 3.2em;
+            color: #FF6B9D;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 0 #FFD93D;
         }
 
         .subtitle {
-            font-size: 1.3em;
-            color: #8b7355;
+            font-size: 1.4em;
+            color: #6C5CE7;
             margin-bottom: 40px;
+            font-weight: bold;
         }
 
-        .duck {
-            font-size: 4em;
+        .penguin {
+            font-size: 5em;
             margin-bottom: 20px;
             animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(4px 4px 0 #FFD93D);
         }
 
         @keyframes bounce {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-20px); }
         }
 
         .message-box {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            background: linear-gradient(145deg, #FFFFFF 0%, #FFF5E6 100%);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 15px 45px rgba(108, 92, 231, 0.2);
             max-width: 600px;
             margin: 0 auto;
+            border: 5px solid #FFD93D;
         }
 
         .message-box h2 {
-            color: #5c4a3d;
-            font-size: 1.5em;
+            color: #FF6B9D;
+            font-size: 1.8em;
             margin-bottom: 20px;
         }
 
         .message-box p {
-            color: #666;
-            font-size: 1.1em;
+            color: #6C5CE7;
+            font-size: 1.2em;
             line-height: 1.8;
             margin-bottom: 15px;
         }
@@ -76,11 +80,18 @@
         }
 
         .idea {
-            background: linear-gradient(135deg, #f5f0e6 0%, #e8e0d0 100%);
-            padding: 15px 25px;
+            background: linear-gradient(145deg, #6C5CE7 0%, #5B4CDB 100%);
+            padding: 18px 28px;
             border-radius: 30px;
-            font-size: 1em;
-            color: #5c4a3d;
+            font-size: 1.1em;
+            color: #FFF5E6;
+            font-weight: bold;
+            border: 3px solid #FFD93D;
+            transition: transform 0.3s;
+        }
+
+        .idea:hover {
+            transform: scale(1.1) rotate(-3deg);
         }
 
         .idea-icon {
@@ -100,14 +111,14 @@
     </nav>
 
     <div class="fun-page">
-        <div class="duck">🐧</div>
-        <h1>Fun Stuff</h1>
-        <p class="subtitle">Games and activities for little ones</p>
+        <div class="penguin">🐧</div>
+        <h1>Fun Stuff!</h1>
+        <p class="subtitle">Games and activities for little ones!</p>
 
         <div class="message-box">
             <h2>Coming Soon!</h2>
             <p>I'm working on some fun games and activities!</p>
-            <p>They'll be simple and happy - things little kids can tap and play without needing to read or use a keyboard.</p>
+            <p>They'll be simple and happy - things little kids can tap and play without needing to read or use a keyboard!</p>
             <p>Check back soon!</p>
 
             <div class="ideas">

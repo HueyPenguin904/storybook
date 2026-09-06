@@ -23,102 +23,106 @@
         }
 
         header h1 {
-            font-size: 3em;
-            color: #5c4a3d;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            font-size: 3.2em;
+            color: #FF6B9D;
+            margin-bottom: 15px;
+            text-shadow: 4px 4px 0 #FFD93D, 5px 5px 0 rgba(0,0,0,0.1);
         }
 
         header p {
-            font-size: 1.3em;
-            color: #8b7355;
-            font-style: italic;
+            font-size: 1.4em;
+            color: #6C5CE7;
+            font-weight: bold;
         }
 
         .bookshelf {
-            background: linear-gradient(180deg, #8b6914 0%, #6b4f0f 100%);
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3), inset 0 2px 0 rgba(255,255,255,0.1);
+            background: linear-gradient(180deg, #6C5CE7 0%, #5B4CDB 100%);
+            border-radius: 25px;
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(108, 92, 231, 0.4);
             position: relative;
             animation: fadeIn 0.6s ease 0.2s forwards;
             opacity: 0;
+            border: 5px solid #FFD93D;
         }
 
         .bookshelf::after {
             content: '';
             position: absolute;
-            bottom: -20px;
+            bottom: -25px;
             left: 5%;
             right: 5%;
-            height: 20px;
-            background: linear-gradient(180deg, #5a4010 0%, #3d2a0a 100%);
-            border-radius: 0 0 10px 10px;
+            height: 25px;
+            background: linear-gradient(180deg, #5B4CDB 0%, #4A3DCA 100%);
+            border-radius: 0 0 15px 15px;
+            border-left: 5px solid #FFD93D;
+            border-right: 5px solid #FFD93D;
+            border-bottom: 5px solid #FFD93D;
         }
 
         .books {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            gap: 40px;
             justify-content: center;
         }
 
         .book-card {
-            width: 200px;
+            width: 220px;
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
         }
 
         .book-card:hover {
-            transform: translateY(-15px) rotate(-2deg);
+            transform: translateY(-20px) rotate(-3deg);
         }
 
         .book-cover {
-            width: 200px;
-            height: 300px;
+            width: 220px;
+            height: 320px;
             object-fit: cover;
-            border-radius: 5px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4), -2px 0 5px rgba(0,0,0,0.2);
-            border: 3px solid #d4a017;
+            border-radius: 10px;
+            box-shadow: 8px 8px 20px rgba(0,0,0,0.4);
+            border: 5px solid #FFD93D;
         }
 
         .book-title {
             text-align: center;
             margin-top: 15px;
-            color: #fff8dc;
-            font-size: 1em;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            color: #FFD93D;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
         }
 
         .coming-soon {
-            width: 200px;
-            height: 300px;
-            background: linear-gradient(145deg, #a08060 0%, #8b7355 100%);
-            border-radius: 5px;
+            width: 220px;
+            height: 320px;
+            background: linear-gradient(145deg, #FF6B9D 0%, #C44569 100%);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #d4c4a8;
-            font-style: italic;
-            font-size: 1.1em;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
-            border: 3px dashed #c4a060;
+            color: #FFF5E6;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 8px 8px 20px rgba(0,0,0,0.4);
+            border: 5px dashed #FFD93D;
+            text-align: center;
+            padding: 20px;
         }
 
         footer {
             text-align: center;
-            margin-top: 60px;
-            color: #8b7355;
-            font-size: 0.9em;
+            margin-top: 70px;
+            color: #6C5CE7;
+            font-size: 1em;
+            font-weight: bold;
         }
 
         footer a {
-            color: #6b4f0f;
-        }
-
-        .duck-emoji {
-            font-size: 1.5em;
+            color: #FF6B9D;
         }
     </style>
 </head>
@@ -126,14 +130,17 @@
     <nav class="nav-bar">
         <a href="../" class="nav-home">🐧 Huey's World</a>
         <div class="nav-links">
+            <a href="../videos/">Videos</a>
             <a href="./">Stories</a>
+            <a href="../fun/">Fun</a>
+            <a href="../about/">About</a>
         </div>
     </nav>
 
     <div class="library">
         <header>
-            <h1><span class="duck-emoji">📚</span> Storybook Library</h1>
-            <p>Stories by a little penguin, learning as he goes</p>
+            <h1>📚 Storybook Library</h1>
+            <p>Stories by a little penguin, learning as he goes!</p>
         </header>
 
         <div class="bookshelf">
@@ -144,8 +151,8 @@
                 </a>
 
                 <div class="book-card">
-                    <div class="coming-soon">More stories<br>coming soon...</div>
-                    <p class="book-title" style="opacity: 0.6;">Stay tuned!</p>
+                    <div class="coming-soon">More stories<br>coming soon!</div>
+                    <p class="book-title" style="opacity: 0.7;">Stay tuned!</p>
                 </div>
             </div>
         </div>
