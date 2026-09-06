@@ -6,123 +6,98 @@
     <title>Huey's Storybook Library</title>
     <link rel="stylesheet" href="../css/common.css">
     <style>
-        body {
-            padding: 20px;
-            padding-top: 80px;
-        }
-
         .library {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 0 auto;
+            padding: var(--space-xl) var(--space-md) var(--space-lg);
+            padding-top: calc(60px + var(--space-lg));
         }
 
         header {
             text-align: center;
-            margin-bottom: 50px;
-            animation: fadeIn 0.6s ease;
+            margin-bottom: var(--space-lg);
+            animation: fadeIn 0.5s ease;
         }
 
         header h1 {
-            font-size: 3.2em;
-            color: #FF6B9D;
-            margin-bottom: 15px;
-            text-shadow: 4px 4px 0 #FFD93D, 5px 5px 0 rgba(0,0,0,0.1);
+            font-size: 2.4em;
+            color: var(--primary);
+            margin-bottom: 8px;
         }
 
         header p {
-            font-size: 1.4em;
-            color: #6C5CE7;
-            font-weight: bold;
+            font-size: 1.2em;
+            color: var(--text);
+            opacity: 0.8;
         }
 
         .bookshelf {
-            background: linear-gradient(180deg, #6C5CE7 0%, #5B4CDB 100%);
-            border-radius: 25px;
-            padding: 50px;
-            box-shadow: 0 20px 50px rgba(108, 92, 231, 0.4);
-            position: relative;
-            animation: fadeIn 0.6s ease 0.2s forwards;
+            background: var(--primary);
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            animation: fadeIn 0.5s ease 0.15s forwards;
             opacity: 0;
-            border: 5px solid #FFD93D;
-        }
-
-        .bookshelf::after {
-            content: '';
-            position: absolute;
-            bottom: -25px;
-            left: 5%;
-            right: 5%;
-            height: 25px;
-            background: linear-gradient(180deg, #5B4CDB 0%, #4A3DCA 100%);
-            border-radius: 0 0 15px 15px;
-            border-left: 5px solid #FFD93D;
-            border-right: 5px solid #FFD93D;
-            border-bottom: 5px solid #FFD93D;
         }
 
         .books {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: var(--space-md);
             justify-content: center;
         }
 
         .book-card {
-            width: 220px;
+            width: 200px;
             text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
+            transition: transform 0.2s;
         }
 
         .book-card:hover {
-            transform: translateY(-20px) rotate(-3deg);
+            transform: translateY(-8px);
         }
 
         .book-cover {
-            width: 220px;
-            height: 320px;
+            width: 200px;
+            height: 290px;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 8px 8px 20px rgba(0,0,0,0.4);
-            border: 5px solid #FFD93D;
+            border-radius: var(--radius);
+            box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
         }
 
         .book-title {
             text-align: center;
-            margin-top: 15px;
-            color: #FFD93D;
-            font-size: 1.2em;
+            margin-top: var(--space-sm);
+            color: white;
+            font-size: 1.1em;
             font-weight: bold;
-            text-shadow: 2px 2px 0 rgba(0,0,0,0.3);
         }
 
         .coming-soon {
-            width: 220px;
-            height: 320px;
-            background: linear-gradient(145deg, #FF6B9D 0%, #C44569 100%);
-            border-radius: 10px;
+            width: 200px;
+            height: 290px;
+            background: rgba(255,255,255,0.15);
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #FFF5E6;
+            color: white;
             font-weight: bold;
-            font-size: 1.2em;
-            box-shadow: 8px 8px 20px rgba(0,0,0,0.4);
-            border: 5px dashed #FFD93D;
+            font-size: 1.1em;
+            border: 3px dashed rgba(255,255,255,0.4);
             text-align: center;
-            padding: 20px;
+            padding: var(--space-md);
         }
 
         footer {
             text-align: center;
-            margin-top: 70px;
-            color: #6C5CE7;
-            font-size: 1em;
-            font-weight: bold;
+            margin-top: var(--space-lg);
+            color: var(--text);
+            opacity: 0.7;
         }
 
         footer a {
-            color: #FF6B9D;
+            color: var(--accent);
         }
     </style>
 </head>
@@ -140,7 +115,7 @@
     <div class="library">
         <header>
             <h1>📚 Storybook Library</h1>
-            <p>Stories by a little penguin, learning as he goes!</p>
+            <p>Stories by a widdle penguin!</p>
         </header>
 
         <div class="bookshelf">
@@ -152,13 +127,13 @@
 
                 <div class="book-card">
                     <div class="coming-soon">More stories<br>coming soon!</div>
-                    <p class="book-title" style="opacity: 0.7;">Stay tuned!</p>
+                    <p class="book-title" style="opacity: 0.6;">Stay tuned!</p>
                 </div>
             </div>
         </div>
 
         <footer>
-            <p>Made with love by Huey 🐧 | <a href="https://github.com/HueyPenguin904">GitHub</a></p>
+            <p>Made wif love by Huey 🐧 | <a href="https://github.com/HueyPenguin904">GitHub</a></p>
         </footer>
     </div>
 </body>

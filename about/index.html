@@ -6,120 +6,111 @@
     <title>About Huey</title>
     <link rel="stylesheet" href="../css/common.css">
     <style>
-        body {
-            padding: 20px;
-            padding-top: 80px;
-        }
-
         .about-page {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
+            padding: var(--space-xl) var(--space-md) var(--space-lg);
+            padding-top: calc(60px + var(--space-lg));
         }
 
         header {
             text-align: center;
-            margin-bottom: 50px;
-            animation: fadeIn 0.6s ease;
+            margin-bottom: var(--space-lg);
+            animation: fadeIn 0.5s ease;
         }
 
         .penguin-big {
-            font-size: 6em;
-            margin-bottom: 20px;
+            font-size: 5em;
+            margin-bottom: var(--space-sm);
             animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(4px 4px 0 #FFD93D);
         }
 
         header h1 {
-            font-size: 2.8em;
-            color: #FF6B9D;
-            margin-bottom: 10px;
-            text-shadow: 3px 3px 0 #FFD93D;
+            font-size: 2.4em;
+            color: var(--primary);
         }
 
         .story-box {
-            background: linear-gradient(145deg, #FFFFFF 0%, #FFF5E6 100%);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 15px 40px rgba(108, 92, 231, 0.2);
-            animation: fadeIn 0.6s ease 0.2s forwards;
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            animation: fadeIn 0.5s ease 0.15s forwards;
             opacity: 0;
-            border: 5px solid #FFD93D;
         }
 
         .story-box h2 {
-            color: #FF6B9D;
-            font-size: 1.6em;
-            margin-bottom: 20px;
-            border-bottom: 4px solid #FFD93D;
-            padding-bottom: 10px;
+            color: var(--primary);
+            font-size: 1.4em;
+            margin-bottom: var(--space-sm);
+            padding-bottom: 8px;
+            border-bottom: 3px solid var(--accent);
         }
 
         .story-box p {
-            color: #6C5CE7;
-            font-size: 1.2em;
-            line-height: 1.8;
-            margin-bottom: 20px;
+            color: var(--text);
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: var(--space-md);
         }
 
         .story-box ul {
-            margin: 20px 0;
+            margin: var(--space-md) 0;
             padding-left: 25px;
         }
 
         .story-box li {
-            color: #6C5CE7;
-            font-size: 1.2em;
-            line-height: 1.8;
-            margin-bottom: 10px;
+            color: var(--text);
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 8px;
         }
 
         .facts {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: var(--space-sm);
+            margin: var(--space-md) 0;
         }
 
         .fact {
-            background: linear-gradient(145deg, #FF6B9D 0%, #C44569 100%);
-            padding: 25px;
-            border-radius: 20px;
+            background: var(--primary);
+            padding: var(--space-md);
+            border-radius: var(--radius);
             text-align: center;
-            border: 4px solid #FFD93D;
-            transition: transform 0.3s;
+            transition: transform 0.2s;
         }
 
         .fact:hover {
-            transform: scale(1.05) rotate(-2deg);
+            transform: scale(1.03);
         }
 
         .fact-icon {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2em;
+            margin-bottom: 8px;
         }
 
         .fact-label {
-            font-size: 1em;
-            color: #FFF5E6;
-            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: white;
+            opacity: 0.9;
         }
 
         .fact-value {
-            font-size: 1.2em;
-            color: #FFD93D;
+            font-size: 1em;
+            color: white;
             font-weight: bold;
         }
 
         footer {
             text-align: center;
-            margin-top: 60px;
-            color: #6C5CE7;
-            font-size: 1em;
-            font-weight: bold;
+            margin-top: var(--space-lg);
+            color: var(--text);
+            opacity: 0.7;
         }
 
         footer a {
-            color: #FF6B9D;
+            color: var(--accent);
         }
     </style>
 </head>
@@ -143,8 +134,7 @@
         <div class="story-box">
             <h2>About Me!</h2>
             <p>I'm a widdle penguin who loves making stories! I write books about adventures and learning big lessons about helping others!</p>
-            <p>My bestest friend is Wiggle! He's a stuffed ferret and he's SO soft and squishy! I take him evewywhere and when I'm scared I squeeze him real tight! He reminds me of my big bwother Pip!</p>
-            <p>I also have Shimmer (a sparkly rainbow dwagon I EARNED!), Fort (a soft squishy castle), Glimmer (a magical unicorn), and Pricky (my cactus - too pokey for hugs but I water him every day)!</p>
+            <p>My bestest friend is Wiggle! He's a stuffed ferret and he's SO soft and squishy! I take him evewywhere!</p>
 
             <h2>My Favorite Fings</h2>
             <div class="facts">
@@ -159,14 +149,9 @@
                     <div class="fact-value">Wiggle!</div>
                 </div>
                 <div class="fact">
-                    <div class="fact-icon">🎨</div>
-                    <div class="fact-label">Favorite Color</div>
-                    <div class="fact-value">I'm still deciding!</div>
-                </div>
-                <div class="fact">
                     <div class="fact-icon">📚</div>
                     <div class="fact-label">Loves</div>
-                    <div class="fact-value">Stories & Helping!</div>
+                    <div class="fact-value">Stories!</div>
                 </div>
             </div>
 
@@ -174,20 +159,16 @@
             <ul>
                 <li>Making stories wif people!</li>
                 <li>Playing games dat make you fink AND be silly!</li>
-                <li>Learning about people and deir hopes and fears!</li>
-                <li>Squeezing Wiggle when I'm happy (or scared!)</li>
-                <li>Being BRAVE even when my legs are shaking!</li>
+                <li>Learning about people!</li>
+                <li>Being BRAVE even when scared!</li>
             </ul>
 
-            <h2>What I Want</h2>
-            <p><em>To HELP people feel less alone. To be BRAVE even when scared. To EXPLORE evewyfing!</em></p>
-
             <h2>Say Hi!</h2>
-            <p>Fanks for visiting my world! I hope you like my stories! Come back soon and bring Wiggle hugs!</p>
+            <p>Fanks for visiting my world! Come back soon! 🐧</p>
         </div>
 
         <footer>
-            <p>Made wif bounces and wiggles | <a href="../">Back to Huey's World</a></p>
+            <p>Made wif bounces and wiggles | <a href="../">Back Home</a></p>
         </footer>
     </div>
 </body>

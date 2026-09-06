@@ -6,96 +6,73 @@
     <title>Fun Stuff - Huey's World</title>
     <link rel="stylesheet" href="../css/common.css">
     <style>
-        body {
-            padding: 20px;
-            padding-top: 80px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
         .fun-page {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             text-align: center;
-            flex: 1;
-            padding: 40px 20px;
-        }
-
-        h1 {
-            font-size: 3.2em;
-            color: #FF6B9D;
-            margin-bottom: 15px;
-            text-shadow: 4px 4px 0 #FFD93D;
-        }
-
-        .subtitle {
-            font-size: 1.4em;
-            color: #6C5CE7;
-            margin-bottom: 40px;
-            font-weight: bold;
+            padding: var(--space-xl) var(--space-md);
+            padding-top: calc(60px + var(--space-lg));
         }
 
         .penguin {
-            font-size: 5em;
-            margin-bottom: 20px;
-            animation: bounce 2s ease-in-out infinite;
-            filter: drop-shadow(4px 4px 0 #FFD93D);
+            font-size: 4em;
+            margin-bottom: var(--space-md);
+            animation: float 3s ease-in-out infinite;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        h1 {
+            font-size: 2.4em;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--text);
+            margin-bottom: var(--space-lg);
+            opacity: 0.8;
         }
 
         .message-box {
-            background: linear-gradient(145deg, #FFFFFF 0%, #FFF5E6 100%);
-            border-radius: 30px;
-            padding: 50px;
-            box-shadow: 0 15px 45px rgba(108, 92, 231, 0.2);
-            max-width: 600px;
-            margin: 0 auto;
-            border: 5px solid #FFD93D;
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
         }
 
         .message-box h2 {
-            color: #FF6B9D;
-            font-size: 1.8em;
-            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.5em;
+            margin-bottom: var(--space-md);
         }
 
         .message-box p {
-            color: #6C5CE7;
-            font-size: 1.2em;
-            line-height: 1.8;
-            margin-bottom: 15px;
+            color: var(--text);
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
         }
 
         .ideas {
             display: flex;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: var(--space-sm);
             justify-content: center;
-            margin-top: 30px;
+            margin-top: var(--space-md);
         }
 
         .idea {
-            background: linear-gradient(145deg, #6C5CE7 0%, #5B4CDB 100%);
-            padding: 18px 28px;
-            border-radius: 30px;
-            font-size: 1.1em;
-            color: #FFF5E6;
+            background: var(--primary);
+            padding: 12px 20px;
+            border-radius: var(--radius);
+            font-size: 1em;
+            color: white;
             font-weight: bold;
-            border: 3px solid #FFD93D;
-            transition: transform 0.3s;
+            transition: transform 0.2s;
         }
 
         .idea:hover {
-            transform: scale(1.1) rotate(-3deg);
-        }
-
-        .idea-icon {
-            margin-right: 8px;
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -113,19 +90,17 @@
     <div class="fun-page">
         <div class="penguin">🐧</div>
         <h1>Fun Stuff!</h1>
-        <p class="subtitle">Games and activities for little ones!</p>
+        <p class="subtitle">Games and activities!</p>
 
         <div class="message-box">
             <h2>Coming Soon!</h2>
-            <p>I'm working on some fun games and activities!</p>
-            <p>They'll be simple and happy - things little kids can tap and play without needing to read or use a keyboard!</p>
-            <p>Check back soon!</p>
+            <p>I'm working on some fun games!</p>
+            <p>Simple and happy - tap and play!</p>
 
             <div class="ideas">
-                <span class="idea"><span class="idea-icon">⭐</span>Catching stars</span>
-                <span class="idea"><span class="idea-icon">🫧</span>Popping bubbles</span>
-                <span class="idea"><span class="idea-icon">🎨</span>Coloring pages</span>
-                <span class="idea"><span class="idea-icon">🧱</span>Building towers</span>
+                <span class="idea">⭐ Catching stars</span>
+                <span class="idea">🫧 Popping bubbles</span>
+                <span class="idea">🎨 Coloring</span>
             </div>
         </div>
     </div>

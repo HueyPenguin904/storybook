@@ -6,50 +6,37 @@
     <title>Huey's Videos</title>
     <link rel="stylesheet" href="../css/common.css">
     <style>
-        body {
-            padding: 20px;
-            padding-top: 80px;
-        }
-
         .coming-soon {
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             text-align: center;
-            padding: 100px 20px;
+            padding: var(--space-xl) var(--space-md);
+            padding-top: calc(60px + var(--space-xl));
         }
 
-        .coming-soon h1 {
-            font-size: 3.2em;
-            color: #FF6B9D;
-            margin-bottom: 20px;
-            text-shadow: 4px 4px 0 #FFD93D;
+        .emoji {
+            font-size: 5em;
+            margin-bottom: var(--space-md);
+            animation: float 3s ease infinite;
         }
 
-        .coming-soon .emoji {
-            font-size: 6em;
-            margin-bottom: 30px;
-            animation: bounce 1.5s ease infinite;
-            filter: drop-shadow(4px 4px 0 #FFD93D);
+        h1 {
+            font-size: 2.4em;
+            color: var(--primary);
+            margin-bottom: var(--space-md);
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-25px); }
-        }
-
-        .coming-soon p {
-            font-size: 1.4em;
-            color: #6C5CE7;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .coming-soon .note {
-            font-style: italic;
-            color: #FF6B9D;
-            margin-top: 40px;
+        p {
             font-size: 1.2em;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: var(--space-sm);
+        }
+
+        .note {
+            font-style: italic;
+            color: var(--accent);
+            margin-top: var(--space-md);
         }
     </style>
 </head>
@@ -69,7 +56,7 @@
         <h1>Videos Coming Soon!</h1>
         <p>I'm still widdle so I haven't made any videos yet!</p>
         <p>But when I do, dey'll be here!</p>
-        <p class="note">*hugs Wiggle and waddles away to learn video making*</p>
+        <p class="note">*hugs Wiggle and waddles away*</p>
     </div>
 </body>
 </html>
