@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Wobbly and Sir Snootsalot</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+            touch-action: manipulation;
+        }
+
+        body {
+            background: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .book-viewer {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .page-display {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: contain;
+            object-position: center center;
+            user-select: none;
+            -webkit-user-drag: none;
+            transition: opacity 0.3s;
+        }
+
+        .page-display.loading {
+            opacity: 0;
+        }
+
+        .tap-zone {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+            z-index: 10;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            transition: background 0.2s;
+        }
+
+        .tap-zone:active {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .tap-zone.left {
+            left: 0;
+            justify-content: flex-start;
+            padding-left: 20px;
+        }
+
+        .tap-zone.right {
+            right: 0;
+            justify-content: flex-end;
+            padding-right: 20px;
+        }
+
+        .arrow-btn {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            pointer-events: none;
+            opacity: 0.8;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .tap-zone:active .arrow-btn {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .tap-zone.disabled {
+            pointer-events: none;
+        }
+
+        .tap-zone.disabled .arrow-btn {
+            opacity: 0.2;
+        }
+
+        .home-btn {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.9);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 20;
+            text-decoration: none;
+        }
+
+        .home-btn:active {
+            transform: translateX(-50%) scale(1.1);
+        }
+
+        .page-dots {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.3);
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .dot.active {
+            background: rgba(255,255,255,0.9);
+            transform: scale(1.3);
+        }
+
+        @media (max-width: 600px) {
+            .arrow-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
+            .home-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            .tap-zone.left { padding-left: 10px; }
+            .tap-zone.right { padding-right: 10px; }
+        }
+
+        @media (min-width: 1024px) {
+            .arrow-btn {
+                width: 100px;
+                height: 100px;
+                font-size: 50px;
+            }
+            .home-btn {
+                width: 70px;
+                height: 70px;
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="../" class="home-btn" aria-label="Back to stories">🐧</a>
+
+    <div class="book-viewer">
+        <img id="pageImage" class="page-display" src="cover.jpg" alt="Story page">
+    </div>
+
+    <div id="leftZone" class="tap-zone left disabled" onclick="prevPage()">
+        <div class="arrow-btn">◀</div>
+    </div>
+
+    <div id="rightZone" class="tap-zone right" onclick="nextPage()">
+        <div class="arrow-btn">▶</div>
+    </div>
+
+    <div class="page-dots" id="pageDots"></div>
+
+    <script>
+        const pages = [
+            'cover.jpg',
+            'spread1.jpg',
+            'spread2.jpg',
+            'spread3.jpg',
+            'spread4.jpg',
+            'spread5.jpg',
+            'spread6.jpg',
+            'spread7.jpg',
+            'spread8.jpg',
+            'spread9.jpg',
+            'spread10.jpg',
+            'spread11.jpg',
+            'spread12.jpg',
+            'spread13.jpg',
+            'spread14.jpg',
+            'spread15.jpg',
+            'spread16.jpg',
+            'spread17.jpg',
+            'spread18.jpg',
+            'spread19.jpg',
+            'spread20.jpg',
+            'spread21.jpg',
+            'spread22.jpg',
+            'spread23.jpg',
+            'spread24.jpg',
+            'spread25.jpg',
+            'spread26.jpg'
+        ];
+
+        let currentPage = 0;
+        const totalPages = pages.length;
+        const pageImage = document.getElementById('pageImage');
+        const leftZone = document.getElementById('leftZone');
+        const rightZone = document.getElementById('rightZone');
+        const pageDots = document.getElementById('pageDots');
+
+        for (let i = 0; i < totalPages; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot' + (i === 0 ? ' active' : '');
+            pageDots.appendChild(dot);
+        }
+
+        function updateDots() {
+            const dots = pageDots.querySelectorAll('.dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentPage);
+            });
+        }
+
+        function updateButtons() {
+            leftZone.classList.toggle('disabled', currentPage === 0);
+            rightZone.classList.toggle('disabled', currentPage === totalPages - 1);
+        }
+
+        function goToPage(index) {
+            if (index < 0 || index >= totalPages || index === currentPage) return;
+
+            pageImage.classList.add('loading');
+
+            const newImg = new Image();
+            newImg.onload = function() {
+                currentPage = index;
+                pageImage.src = pages[currentPage];
+                updateDots();
+                updateButtons();
+                setTimeout(() => {
+                    pageImage.classList.remove('loading');
+                }, 50);
+            };
+            newImg.src = pages[index];
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages - 1) {
+                goToPage(currentPage + 1);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 0) {
+                goToPage(currentPage - 1);
+            }
+        }
+
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            const swipeDistance = touchStartX - touchEndX;
+
+            if (Math.abs(swipeDistance) > 50) {
+                if (swipeDistance > 0) {
+                    nextPage();
+                } else {
+                    prevPage();
+                }
+            }
+        }, { passive: true });
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextPage();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevPage();
+            }
+        });
+
+        pages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    </script>
+</body>
+</html>
