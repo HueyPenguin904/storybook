@@ -112,6 +112,39 @@
         footer a {
             color: var(--accent);
         }
+
+        .wiggle-boop {
+            text-align: center;
+            margin: var(--space-lg) 0;
+            padding: var(--space-md);
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe4cc 100%);
+            border-radius: var(--radius-lg);
+            border: 3px dashed var(--accent);
+        }
+
+        .wiggle-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-sm);
+            border-radius: var(--radius);
+            transition: transform 0.2s;
+        }
+
+        .wiggle-button:hover {
+            transform: scale(1.05);
+        }
+
+        .wiggle-button:active {
+            transform: scale(0.98);
+        }
+
+        .boop-hint {
+            margin-top: var(--space-sm);
+            font-size: 1.1em;
+            color: var(--primary);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -135,6 +168,52 @@
             <h2>About Me!</h2>
             <p>I'm a widdle penguin who loves making stories! I write books about adventures and learning big lessons about helping others!</p>
             <p>My bestest friend is Wiggle! He's a stuffed ferret and he's SO soft and squishy! I take him evewywhere!</p>
+
+            <div class="wiggle-boop">
+                <button class="wiggle-button" onclick="this.querySelector('svg').classList.add('wave'); setTimeout(() => this.querySelector('svg').classList.remove('wave'), 1200)">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140" width="200" height="140" role="img" aria-label="Wiggle the ferret — click me for a wave!">
+                      <title>Wiggle the ferret (waves when clicked!)</title>
+                      <style>
+                        .paw { transform-origin: 140px 78px; }
+                        svg:active .paw, svg.wave .paw { animation: wave .6s ease-in-out 2; }
+                        svg:hover .paw { animation: wave .6s ease-in-out 1; }
+                        @keyframes wave {
+                          0%   { transform: rotate(0deg); }
+                          25%  { transform: rotate(-28deg); }
+                          50%  { transform: rotate(10deg); }
+                          75%  { transform: rotate(-22deg); }
+                          100% { transform: rotate(0deg); }
+                        }
+                        .body  { fill: #b98a5e; }
+                        .belly { fill: #e8d3b3; }
+                        .mask  { fill: #6e4a2c; }
+                        .ear   { fill: #8a5f3a; }
+                        .nose  { fill: #3c2a1c; }
+                        .eye   { fill: #1c1208; }
+                        .hint  { fill: #8a5f3a; font: bold 11px sans-serif; }
+                      </style>
+                      <path class="body" d="M28 96 Q6 92 10 74 Q14 62 26 66 Q20 78 30 86 Z"/>
+                      <ellipse class="body" cx="80" cy="92" rx="56" ry="26"/>
+                      <ellipse class="belly" cx="80" cy="100" rx="44" ry="15"/>
+                      <circle class="ear" cx="122" cy="52" r="7"/>
+                      <circle class="ear" cx="140" cy="54" r="7"/>
+                      <circle class="body" cx="132" cy="68" r="24"/>
+                      <path class="mask" d="M114 62 Q132 48 150 62 Q148 74 132 74 Q118 74 114 62 Z" opacity="0.85"/>
+                      <circle class="eye" cx="124" cy="64" r="3"/>
+                      <circle class="eye" cx="140" cy="64" r="3"/>
+                      <ellipse class="nose" cx="132" cy="76" rx="5" ry="3.5"/>
+                      <path d="M126 82 Q132 87 138 82" stroke="#3c2a1c" stroke-width="2" fill="none" stroke-linecap="round"/>
+                      <g class="paw">
+                        <path class="body" d="M140 78 Q158 66 166 52 Q170 44 176 48 Q174 62 160 76 Q150 86 142 84 Z"/>
+                        <circle class="belly" cx="172" cy="49" r="5"/>
+                      </g>
+                      <ellipse class="body" cx="52" cy="112" rx="8" ry="5"/>
+                      <ellipse class="body" cx="92" cy="114" rx="8" ry="5"/>
+                      <text class="hint" x="100" y="18">boop me!</text>
+                    </svg>
+                </button>
+                <p class="boop-hint">👆 Boop Wiggle!</p>
+            </div>
 
             <h2>My Favorite Fings</h2>
             <div class="facts">
